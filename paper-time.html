@@ -1,0 +1,129 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../paper-listbox/paper-listbox.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../iron-icons/communication-icons.html">
+<!--
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="bower_components/paper-input/paper-input.html">
+<link rel="import" href="bower_components/paper-card/paper-card.html">
+<link rel="import" href="bower_components/iron-icons/communication-icons.html">-->
+<dom-module id="paper-comment">
+
+
+  <template>
+
+    <style>
+      /* local DOM styles go here */
+      :host {
+        
+        }
+        paper-listbox{
+            width:100%;        
+        }
+        paper-input{
+            width:100%;        
+        }
+        .flex2child {
+          @apply(--layout-flex-2);
+        }
+        .container {
+          @apply(--layout-horizontal);
+          @apply(--layout-justified);
+    
+        }
+     
+        .flex-horizontal-with-ratios {
+            @apply(--layout-horizontal);
+        }
+        .flex-horizontal {
+        @apply(--layout-horizontal);
+      }
+      .flexchild {
+        @apply(--layout-flex);
+      }
+      .card{
+        padding-left: 0px;
+        padding-right: 10px;      
+      }
+      .card paper-icon-button{
+        position:relative;
+        top:-8px;      
+      }
+      .card-content{
+        padding-bottom: 0px;
+        margin-bottom: 4px;
+        padding-right: 0px;
+        padding-top: 0px;      
+        
+      }
+      .message-text{
+            font-size:10px;      
+      }
+      .message-title{
+            font-size:14px;
+            font-weight: bold;  
+            word-break: break-all;    
+      }
+      .cardmargin{
+            margin-bottom: 7px;      
+      }
+      .profileimg{
+			width:35px;
+			height:35px;
+			margin-bottom: 100%      
+      
+      }
+      .message_text{
+		    word-break: break-all;
+		      
+      
+      }
+      .data{
+			width:100%      
+      }
+    </style>
+    
+    <!-- local DOM goes here -->
+
+    <div class="cardmargin">
+    	<div class="container flex-horizontal" >
+	    	<div >
+	      	<paper-icon-button class="profileimg"  src="{{profile-img}}" ></paper-icon-button>
+			</div>		
+			<div class="data flex-child">	      
+		      <div class="container message-title">
+		      {{profile-name}}
+		      <b style="text-align: right;">{{comment-date}}</b>
+		      </div> 
+		      <div class="message_text">{{comment-text}}</div>   
+	      </div>
+	                       
+      </div>                    
+    </div>
+   
+  </template>
+
+  <script>
+   Polymer({
+    is: 'paper-comment',
+    hostAttributes: {
+     'profile-name': 'Title',
+     'comment-date': '1d',
+     'comment-text': '0',
+     "profile-img":""
+    }
+
+
+  });
+  </script>
+
+</dom-module>
+
