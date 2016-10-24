@@ -13,9 +13,9 @@
   
     <h3>Statically-configured icon-comment</h3>
     
-    <paper-time id="aa"></paper-time>
-    <paper-time id="aab" ></paper-time>
-    <paper-time id="aaz" ></paper-time>
+    <paper-time></paper-time>
+    <paper-time></paper-time>
+    <paper-time></paper-time>
     <div><span>[[message(isFav)]]</span></div>
 
   </template>
