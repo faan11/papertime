@@ -195,7 +195,7 @@
 		time_state = true;
 	},
     changeTimeData:function(dialog){
-      var time_today=(document.getElementsByTagName("paper-time-picker")[0].time);
+      var time_today=(this.$.timePicker.time);
       time_now = this.parseTime(time_today,new Date());
       this.showTime(time_now,dialog);
   },
@@ -231,9 +231,9 @@
   * This will change the date.
   */
   showTime:function(data,dialog){
-	cele.getElementsByTagName("input")[0].value = data.getHours()+":"+(data.getMinutes()==0?"00":data.getMinutes());
+    this.$.pinput.value = data.getHours()+":"+(data.getMinutes()==0?"00":data.getMinutes());
    data.setHours(data.getHours()+2);
-   cele.parentElement.getElementsByClassName("suffix")[0].innerHTML = "- "+data.getHours()+":"+(data.getMinutes()==0?"00":data.getMinutes());
+   this.$.suffix.innerHTML = "- "+data.getHours()+":"+(data.getMinutes()==0?"00":data.getMinutes());
   }
     
   }

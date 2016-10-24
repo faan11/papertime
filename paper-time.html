@@ -9,7 +9,7 @@
 <link rel="import" href="../iron-icons/communication-icons.html">
 <link rel="import" href="../paper-time-picker/paper-time-picker.html">
 
--->
+
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
@@ -21,8 +21,8 @@
 <link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="../paper-time-picker/paper-time-picker.html">
 <link rel="import" href="../iron-icons/communication-icons.html">
+-->
 
-<!--
 <link rel="import" href="bower_components/polymer/polymer.html">
 <link rel="import" href="bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
@@ -34,7 +34,7 @@
 <link rel="import" href="bower_components/paper-button/paper-button.html">
 <link rel="import" href="bower_components/paper-time-picker/paper-time-picker.html">
 <link rel="import" href="bower_components/iron-icons/communication-icons.html">
--->
+
 <dom-module id="paper-time">
 
 
@@ -123,7 +123,7 @@
  	
     <div>
     <paper-input class="time" id="pinput" label="Orario"  value="{{start}}"  always-float-label>
-		  <div class="suffix" suffix>{{end}}</div>
+		  <div class="suffix" id="suffix" suffix>{{end}}</div>
 	 </paper-input>    
     </div>
    
@@ -195,7 +195,7 @@
 		time_state = true;
 	},
     changeTimeData:function(dialog){
-      var time_today=(document.getElementsByTagName("paper-time-picker")[0].time);
+      var time_today=(this.$.timePicker.time);
       time_now = this.parseTime(time_today,new Date());
       this.showTime(time_now,dialog);
   },
@@ -231,9 +231,9 @@
   * This will change the date.
   */
   showTime:function(data,dialog){
-	cele.getElementsByTagName("input")[0].value = data.getHours()+":"+(data.getMinutes()==0?"00":data.getMinutes());
+    this.$.pinput.value = data.getHours()+":"+(data.getMinutes()==0?"00":data.getMinutes());
    data.setHours(data.getHours()+2);
-   cele.parentElement.getElementsByClassName("suffix")[0].innerHTML = "- "+data.getHours()+":"+(data.getMinutes()==0?"00":data.getMinutes());
+   this.$.suffix.innerHTML = "- "+data.getHours()+":"+(data.getMinutes()==0?"00":data.getMinutes());
   }
     
   }
