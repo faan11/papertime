@@ -45,7 +45,7 @@
     "tag": "1.1.4",
     "commit": "3528bfc0c8cc082dc7d11ab8f39e25e01933053d"
   },
-  "_source": "git://github.com/bendavis78/paper-time-picker.git",
+  "_source": "https://github.com/bendavis78/paper-time-picker.git",
   "_target": "^1.1.4",
-  "_originalSource": "bendavis78/paper-time-picker"
+  "_originalSource": "https://github.com/bendavis78/paper-time-picker.git"
 }
