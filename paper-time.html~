@@ -1,4 +1,4 @@
-<!--
+
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
@@ -8,8 +8,8 @@
 <link rel="import" href="../paper-card/paper-card.html">
 <link rel="import" href="../iron-icons/communication-icons.html">
 <link rel="import" href="../paper-time-picker/paper-time-picker.html">
--->
 
+<!--
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
@@ -21,7 +21,7 @@
 <link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="../paper-time-picker/paper-time-picker.html">
 <link rel="import" href="../iron-icons/communication-icons.html">
-
+-->
 <!--
 <link rel="import" href="bower_components/polymer/polymer.html">
 <link rel="import" href="bower_components/iron-icon/iron-icon.html">
@@ -114,7 +114,7 @@
     <!-- local DOM goes here -->
 	 <paper-dialog id="timeDialog" modal class="paper-time-picker-dialog"
               on-iron-overlay-closed="dismissDialog">
-              <paper-time-picker id="timePicker" time="[[time]]"></paper-time-picker>
+              <paper-time-picker id="timePicker" ></paper-time-picker>
               <div class="buttons">
                 <paper-button  dialog-dismiss>Cancel</paper-button>
                 <paper-button  on-tap="ok" dialog-confirm>OK</paper-button>
