@@ -19,7 +19,7 @@
 <link rel="import" href="../paper-card/paper-card.html">
 <link rel="import" href="../paper-dialog/paper-dialog.html">
 <link rel="import" href="../paper-button/paper-button.html">
-<link rel="import" href="../paper-time-picker/paper-time-picker.html">
+<link rel="import" href="../paper-time-picker24/paper-time-picker24.html">
 <link rel="import" href="../iron-icons/communication-icons.html">
 -->
 
@@ -32,8 +32,12 @@
 <link rel="import" href="bower_components/paper-card/paper-card.html">
 <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="bower_components/paper-button/paper-button.html">
-<link rel="import" href="bower_components/paper-time-picker/paper-time-picker.html">
+<link rel="import" href="bower_components/paper-time-picker24/paper-time-picker24.html">
 <link rel="import" href="bower_components/iron-icons/communication-icons.html">
+<link rel="import" href="bower_components/paper-time-picker24/paper-time-picker12.html">
+<link rel="import" href="bower_components/paper-styles/paper-styles.html">
+<link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="bower_components/paper-button/paper-button.html">
 
 <dom-module id="paper-time">
 
@@ -113,14 +117,14 @@
     
     <!-- local DOM goes here -->
 	 <paper-dialog id="timeDialog" modal class="paper-time-picker-dialog"
-              on-iron-overlay-closed="dismissDialog">
-              <paper-time-picker id="timePicker" ></paper-time-picker>
+              on-iron-overlay-closed="dismissDialog" modal>
+              <paper-time-picker id="timePicker" time="[[time]]" ></paper-time-picker>
               <div class="buttons">
                 <paper-button  dialog-dismiss>Cancel</paper-button>
                 <paper-button  on-tap="ok" dialog-confirm>OK</paper-button>
               </div>
  	</paper-dialog> 
- 	
+ 	 
     <div>
     <paper-input class="time" id="pinput" label="Orario"  value="{{start}}"  always-float-label>
 		  <div class="suffix" id="suffix" suffix>{{end}}</div>
@@ -238,6 +242,16 @@
     
   }
   );
+  document.addEventListener('DOMContentLoaded', function() {
+      var scope = document.querySelector('#timeDialog');
+      scope.timeSelected = function() {
+        scope.time = scope.$.picker.time;
+      };
+      scope.showDialog = function() {
+        this.$.dialog.toggle();
+      };
+      scope.time = "3:30 pm";
+    });
  
   </script>
 
