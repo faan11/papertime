@@ -19,7 +19,7 @@
 <link rel="import" href="../paper-card/paper-card.html">
 <link rel="import" href="../paper-dialog/paper-dialog.html">
 <link rel="import" href="../paper-button/paper-button.html">
-<link rel="import" href="bower_components/paper-time-picker/paper-time-picker.html">
+<link rel="import" href="../paper-time-picker/paper-time-picker.html">
 <link rel="import" href="../iron-icons/communication-icons.html">
 <!--
 <link rel="import" href="bower_components/polymer/polymer.html">
@@ -111,15 +111,7 @@
     </style>
     
     <!-- local DOM goes here -->
-	 <paper-dialog id="timeDialog" modal class="paper-time-picker-dialog"
-              on-iron-overlay-closed="dismissDialog" modal>
-              <paper-time-picker id="timePicker" time="[[time]]" ></paper-time-picker>
-              <div class="buttons">
-                <paper-button  dialog-dismiss>Cancel</paper-button>
-                <paper-button  on-tap="ok" dialog-confirm>OK</paper-button>
-              </div>
- 	</paper-dialog> 
- 	 
+
     <div>
     <paper-input class="time" id="pinput" label="Orario"  value="{{start}}"  always-float-label>
 		  <div class="suffix" id="suffix" suffix>{{end}}</div>
@@ -151,7 +143,7 @@
       },
 
     close:function(e){
-      var dialog=this.$.timeDialog;
+      var dialog=document.getElementById("timeDialog");
       dialog.toggle();
     },
     ok:function(event){
@@ -183,7 +175,7 @@
 	* When the date change.
 	*/
     changetime:function(element) {
-        var timeDialog=this.$.timeDialog;
+        var timeDialog=document.getElementById("timeDialog");
         cele = element.target.parentNode;
         timeDialog.toggle();
         
@@ -194,7 +186,7 @@
 		time_state = true;
 	},
     changeTimeData:function(dialog){
-      var time_today=(this.$.timePicker.time);
+      var time_today=(document.getElementById("timePicker").time);
       time_now = this.parseTime(time_today,new Date());
       this.showTime(time_now,dialog);
   },
