@@ -45,17 +45,17 @@
                 <paper-button  dialog-dismiss>Cancel</paper-button>
                 <paper-button  on-tap="ok" dialog-confirm>OK</paper-button>
               </div>
- 	</paper-dialog> 
+ 	</paper-dialog>
     <style>
       /* local DOM styles go here */
       :host {
-        
+
         }
         paper-listbox{
-            width:100%;        
+            width:100%;
         }
         paper-input{
-            width:100%;        
+            width:100%;
         }
         .flex2child {
           @apply(--layout-flex-2);
@@ -63,9 +63,9 @@
         .container {
           @apply(--layout-horizontal);
           @apply(--layout-justified);
-    
+
         }
-     
+
         .flex-horizontal-with-ratios {
             @apply(--layout-horizontal);
         }
@@ -77,54 +77,54 @@
       }
       .card{
         padding-left: 0px;
-        padding-right: 10px;      
+        padding-right: 10px;
       }
       .card paper-icon-button{
         position:relative;
-        top:-8px;      
+        top:-8px;
       }
       .card-content{
         padding-bottom: 0px;
         margin-bottom: 4px;
         padding-right: 0px;
-        padding-top: 0px;      
-        
+        padding-top: 0px;
+
       }
       .message-text{
-            font-size:10px;      
+            font-size:10px;
       }
       .message-title{
             font-size:14px;
-            font-weight: bold;  
-            word-break: break-all;    
+            font-weight: bold;
+            word-break: break-all;
       }
       .cardmargin{
-            margin-bottom: 7px;      
+            margin-bottom: 7px;
       }
       .profileimg{
 			width:35px;
 			height:35px;
-			margin-bottom: 100%      
-      
+			margin-bottom: 100%
+
       }
       .message_text{
 		    word-break: break-all;
-		      
-      
+
+
       }
       .data{
-			width:100%      
+			width:100%
       }
     </style>
-    
+
     <!-- local DOM goes here -->
 
     <div>
     <paper-input class="time" id="pinput" label="Orario"  value="{{start}}"  always-float-label>
 		  <div class="suffix" id="suffix" suffix>{{end}}</div>
-	 </paper-input>    
+	 </paper-input>
     </div>
-   
+
   </template>
 
   <script>
@@ -132,7 +132,7 @@
   var cele;
    Polymer({
     is: 'paper-time',
-   
+
      properties: {
         start: {
             type: String,
@@ -143,7 +143,7 @@
             type: String,
             reflectToAttribute: true,
             notify: true
-        }    
+        }
       },
      listeners: {
         'pinput.tap': 'changetime'
@@ -160,7 +160,7 @@
         var day=document.getElementById('day');
         day.value = event.target.innerText;
     },
-        
+
     dismissDialog:function(element){
 
       if ((screen).width < 480 || (screen).height < 480) {
@@ -174,9 +174,9 @@
       }
       else{
         //chiude timestamp
-        
+
         time_state=false;
-       
+
       }
     }, /**
 	* When the date change.
@@ -185,7 +185,7 @@
         var timeDialog=this.$.timeDialog;
         cele = element.target.parentNode;
         timeDialog.toggle();
-        
+
         if ((screen).width < 480 || (screen).height < 480) {
             //small screen, load other JS files
             this.ishidden = !this.ishidden;
@@ -193,16 +193,16 @@
 		time_state = true;
 	},
     changeTimeData:function(dialog){
-      var time_today=this.$.timePicker.time);
+      var time_today=this.$.timePicker.time;
       time_now = this.parseTime(time_today,new Date());
       this.showTime(time_now,dialog);
   },
-  
+
   parseTime: function(timeStr, dt) {
     if (!dt) {
         dt = new Date();
     }
- 
+
     var time = timeStr.match(/(\d+)(?::(\d\d))?\s*(p?)/i);
     if (!time) {
         return NaN;
@@ -214,7 +214,7 @@
     else {
         hours += (hours < 12 && time[3]) ? 12 : 0;
     }
- 
+
     dt.setHours(hours);
     dt.setMinutes(parseInt(time[2], 10) || 0);
     dt.setSeconds(0, 0);
@@ -224,7 +224,7 @@
       time_now = current_time;
   },
 
- 
+
   /**
   * This will change the date.
   */
@@ -233,11 +233,10 @@
    data.setHours(data.getHours()+2);
    this.$.suffix.innerHTML = "- "+data.getHours()+":"+(data.getMinutes()==0?"00":data.getMinutes());
   }
-    
+
   }
   );
- 
+
   </script>
 
 </dom-module>
-
